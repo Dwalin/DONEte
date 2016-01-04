@@ -1,5 +1,136 @@
-use('../../../../node_modules/stylobuild', {
+use('../../../../../node_modules/stylobuild', {
 	autoprefixer: { browsers: "last 2 version, Explorer >=8"},
 	csso: true,
 	pixrem: false
 });
+
+@import 'normalize.css';
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+}
+
+html, body {
+	height: 100%;
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+	line-height: 15px;
+	font-size: 12px;
+}
+
+.done-wrapper {
+	position: relative;
+	margin: 0 auto;
+	min-width: 800px;
+	max-width: 1100px;
+}
+
+.done-block {
+	width: 100%;
+	min-height: 100px;
+	//border: 1px solid red;
+	padding: 20px 0;
+	position: relative;
+
+	margin: 20px auto;
+
+	&_todo {
+
+		&::before {
+			content: 'TODO';
+			position: absolute;
+			top: -10px;
+			left: 10px;
+
+			background-color: #d2d2d2;
+			padding: 5px 20px;
+
+			border-radius: 4px;
+		}
+	}
+}
+
+.done-task {
+
+	position: relative;
+
+	width: 100%;
+	min-height: 50px;
+	background-color: rgba(240, 240, 240, 1);
+
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 5px;
+	border-radius: 8px;
+
+	margin-bottom: 60px;
+
+	&__tip {
+		border-radius: 0 0 8px 8px;
+	}
+
+	&__additional {
+		position: absolute;
+		bottom: -40px;
+		left: 10px;
+	}
+
+	&__field {
+		padding: 5px 10px;
+		flex-basis: 0;
+		flex-grow: 10;
+		border-right: 1px solid rgba(210, 210, 210, 1);
+
+
+		overflow: hidden;
+		text-overflow: ellipsis;
+
+		&:last-child {
+			border-right: none;
+		}
+
+		&__assigner, &__assignee, &__redmine, &__tester {
+			flex-grow: 2;
+			text-align: center;
+			align-self: center;
+		}
+
+		&__marker, &__ticket, &__deadline, &__time {
+			flex-grow: 3;
+		}
+
+		&__task {
+			flex-grow: 5;
+		}
+	}
+}
+
+.done-user {
+	padding: 4px 8px;
+	background-color: rgba(100, 140, 240, 1);
+	color: white;
+	font-weight: 800;
+	border-radius: 4px;
+
+	&__at {
+		background-color: rgba(255, 204, 102, 1);
+		color: black;
+	}
+}
+
+.done-tags {
+	display: inline-flex;
+	padding: 5px 10px;
+
+	&__tag {
+		background-color: #ffff00;
+		padding: 4px;
+		margin-right: 4px;
+		border-radius: 4px;
+	}
+}
