@@ -6,6 +6,9 @@ use('../../../../../node_modules/stylobuild', {
 
 @import 'normalize.css';
 
+$c-main-text = rgba(80, 80, 80, 1);
+$c-main-separator = rgba(220, 220, 220, .25);
+
 * {
 	box-sizing: border-box;
 	margin: 0;
@@ -19,12 +22,15 @@ body {
 	font-family: 'Roboto', sans-serif;
 	line-height: 15px;
 	font-size: 12px;
+	background: rgba(250, 250, 250, 1);
+	color: $c-main-text;
 }
 
 .done-wrapper {
 	position: relative;
 	margin: 0 auto;
-	min-width: 800px;
+	padding: 0 20px;
+	min-width: 400px;
 	max-width: 1100px;
 }
 
@@ -37,38 +43,80 @@ body {
 
 	margin: 20px auto;
 
+	&::before {
+		position: absolute;
+		top: -15px;
+		left: 10px;
+		padding: 5px 20px;
+		border-radius: 4px;
+		font-weight: 800;
+	}
+
 	&_todo {
 
 		&::before {
 			content: 'TODO';
-			position: absolute;
-			top: -10px;
-			left: 10px;
-
 			background-color: #d2d2d2;
-			padding: 5px 20px;
+		}
 
-			border-radius: 4px;
+	}
+
+	&_sprint {
+		&::before {
+			content: 'Sprint';
+			background-color: rgba(51, 204, 255, 1);
+		}
+
+		.done-task {
+			background-color: rgba(51, 204, 255, .1);
+		}
+	}
+
+	&_testing {
+		&::before {
+			content: 'Testing in progress';
+			background-color: rgba(255, 153, 102, 1);
+		}
+
+		.done-task {
+			background-color: rgba(255, 153, 102, .1);
+		}
+	}
+
+	&_done {
+		&::before {
+			content: 'Done';
+			background-color: rgba(0, 204, 102, 1);
+		}
+
+		.done-task {
+			background-color: rgba(0, 204, 0, .1);
 		}
 	}
 }
 
 .done-task {
-
 	position: relative;
 
 	width: 100%;
 	min-height: 50px;
-	background-color: rgba(240, 240, 240, 1);
+	background-color: rgba(255, 255, 255, 1);
 
 	display: flex;
 	flex-wrap: nowrap;
 	justify-content: space-between;
 	align-items: center;
 	padding: 0 5px;
-	border-radius: 8px;
+	border-radius: 4px;
+	box-shadow: 0px 2px 2px rgba(80, 80, 80, .1);
 
 	margin-bottom: 60px;
+
+	@media (max-width: 800px) {
+		flex-wrap: wrap;
+		align-items: stretch;
+		padding: 0 0;
+	}
 
 	&__tip {
 		border-radius: 0 0 8px 8px;
@@ -76,7 +124,24 @@ body {
 
 	&__additional {
 		position: absolute;
-		bottom: -40px;
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+
+		&__item {
+			opacity: .75;
+			transition: opacity .25s ease-in-out;
+
+			&:hover {
+				opacity: 1;
+			}
+		}
+	}
+
+	&__additional {
+		margin-top: 5px;
+		top: 100%;
 		left: 10px;
 	}
 
@@ -84,11 +149,8 @@ body {
 		padding: 5px 10px;
 		flex-basis: 0;
 		flex-grow: 10;
-		border-right: 1px solid rgba(210, 210, 210, 1);
-
-
-		overflow: hidden;
-		text-overflow: ellipsis;
+		border-right: 1px solid $c-main-separator;
+		display: table-cell;
 
 		&:last-child {
 			border-right: none;
@@ -106,20 +168,95 @@ body {
 
 		&__task {
 			flex-grow: 5;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+
+		&__description {
+			font-size: 11px;
+			padding: 16px;
+		}
+
+		@media (max-width: 800px) {
+			order: 2;
+			flex-basis: 25%;
+			padding: 10px 10px;
+
+			&__assigner, &__assignee, &__tester, &__marker {
+				order: 1;
+				border-bottom: 1px solid $c-main-separator;
+			}
+
+			&__task {
+				order: 2;
+				flex-basis: 25%;
+				border-bottom: 1px solid $c-main-separator;
+			}
+
+			&__description {
+				order: 2;
+				flex-basis: 75%;
+				border-bottom: 1px solid $c-main-separator;
+			}
+
+			&__description, &__tester, &__redmine {
+				border-right: none;
+			}
+
 		}
 	}
 }
 
 .done-user {
-	padding: 4px 8px;
+	position: relative;
+	display: inline-block;
+	//padding: 4px 8px;
+	line-height: 26px;
+	text-align: center;
+	height: 24px;
+	width: 40px;
 	background-color: rgba(100, 140, 240, 1);
 	color: white;
 	font-weight: 800;
 	border-radius: 4px;
+	opacity: .75;
+	transition: opacity .1s ease-in-out;
+	font-size: 11px;
+	z-index: 1000;
 
 	&__at {
 		background-color: rgba(255, 204, 102, 1);
 		color: black;
+	}
+
+	&__ec {
+		background-color: rgba(46, 184, 46, 1);
+		color: white;
+	}
+
+	&__list {
+		position: absolute;
+		left: 0;
+		top: 100%;
+		padding: 10px;
+		box-shadow: 0 2px 4px rgba(80, 80, 80, .2);
+		background-color: white;
+		z-index: 1000;
+		list-style: none;
+		display: none;
+
+		li {
+			margin: 5px;
+		}
+	}
+
+	&:hover {
+		opacity: 1;
+		cursor: pointer;
+
+		.done-user__list {
+			display: block;
+		}
 	}
 }
 
@@ -127,10 +264,42 @@ body {
 	display: inline-flex;
 	padding: 5px 10px;
 
+
 	&__tag {
-		background-color: #ffff00;
-		padding: 4px;
+		background-color: rgba(255, 224, 41, .75);
+		padding: 5px 4px 3px;
+		margin-right: 6px;
+		border-radius: 4px;
+		cursor: pointer;
+
+		transition: all .25s ease-in-out;
+
+		&:hover {
+			background-color: rgba(255, 224, 41, 1);
+		}
+	}
+
+	&__add {
+		background-color: rgba(100, 140, 240, 1);
+		padding: 5px 8px 3px;
 		margin-right: 4px;
 		border-radius: 4px;
+		color: white;
+		font-weight: bold;
+		cursor: pointer;
+	}
+}
+
+.done-actions {
+	@extend .done-tags;
+
+
+	&__action {
+		@extend .done-tags__tag;
+
+	}
+
+	&__add {
+		@extend .done-tags__add;
 	}
 }
