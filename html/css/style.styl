@@ -112,6 +112,16 @@ body {
 
 	margin-bottom: 60px;
 
+	&__custom {
+		position: absolute;
+		top: 20px;
+		left: -30px;
+		width: 20px;
+		height: 20px;
+		background-color: rgba(100, 100, 100, .25);
+		border-radius: 100%;
+	}
+
 	@media (max-width: 800px) {
 		flex-wrap: wrap;
 		align-items: stretch;
@@ -177,6 +187,10 @@ body {
 			padding: 16px;
 		}
 
+		&__time {
+			border-right: none;
+		}
+
 		@media (max-width: 800px) {
 			order: 2;
 			flex-basis: 25%;
@@ -199,7 +213,7 @@ body {
 				border-bottom: 1px solid $c-main-separator;
 			}
 
-			&__description, &__tester, &__redmine {
+			&__description, &__tester {
 				border-right: none;
 			}
 
@@ -302,4 +316,61 @@ body {
 	&__add {
 		@extend .done-tags__add;
 	}
+}
+
+.done-deadline {
+	padding: 5px 10px;
+	background-color: rgba(220, 220, 220, 1);
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.done-ticket {
+	text-decoration: none;
+	border-bottom: 1px solid rgba(100, 140, 240, .25);
+	transition: all .15s ease-in-out;
+
+	&:hover {
+		border-bottom: 1px solid rgba(100, 140, 240, .5);
+	}
+}
+
+.done-time {
+	span {
+		white-space: nowrap;
+	}
+}
+
+.done-priorities {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 40px 0;
+	padding: 0;
+	border: 10px solid white;
+	justify-content: space-between;
+
+	&__item {
+		flex-grow: 1;
+		flex-basis: 30%;
+		min-width: 240px;
+		width: 30%;
+		padding: 40px;
+
+		font-size: 22px;
+		line-height: 28px;
+		font-weight: 100;
+		border: 10px solid white;
+	}
+}
+
+.done-header {
+	position: relative;
+	margin: 20px auto;
+	min-width: 400px;
+	max-width: 1100px;
+	padding: 0 40px;
+	font-size: 32px;
+	font-weight: 800;
+	min-height: 40px;
+	line-height: 40px;
 }

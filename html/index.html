@@ -9,9 +9,6 @@
     <!-- Meta Information -->
     <title>DONEte — Task management system for small teams</title>
 
-    <meta name="description" content="Федерация фитнеса в Броварах">
-    <meta name="keywords" content="Федерация фитнеса в Броварах">
-
     <meta name="author" content="Mjolnir LLC" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <!-- !Meta Information -->
@@ -25,11 +22,34 @@
     <!-- !Stylesheets -->
 
 
+
+
 </head>
 
 <body>
 
+<header class="done-header">
+    Done.te — Small team task management
+</header>
+
 <div class="done-wrapper">
+
+    <section class="done-priorities">
+
+        <div class="done-priorities__item">
+            Запустить aero.kz
+        </div>
+        <div class="done-priorities__item">
+            Сделать интерфейс nemo.travel для авиакомпаний
+        </div>
+        <div class="done-priorities__item">
+            Запустить Agent.ru
+        </div>
+        <div class="done-priorities__item">
+            Запустить Rusline
+        </div>
+
+    </section>
 
     <article class="done-task done-task__tip">
 
@@ -43,13 +63,14 @@
         <div class="done-task__field done-task__field__deadline">Дедлайн</div>
         <div class="done-task__field done-task__field__ticket">Тикет</div>
         <div class="done-task__field done-task__field__time">Потрачено</div>
-        <div class="done-task__field done-task__field__redmine">Редмайн</div>
 
     </article>
 
     <section class="done-block done-block_todo">
 
         <article class="done-task">
+
+            <div class="done-task__custom"></div>
 
             <div class="done-task__field done-task__field__marker"></div>
             <div class="done-task__field done-task__field__assigner"><span class="done-user">ОК</span></div>
@@ -60,10 +81,10 @@
 
 
             </div>
-            <div class="done-task__field done-task__field__deadline">5 дней</div>
-            <div class="done-task__field done-task__field__ticket">12345</div>
-            <div class="done-task__field done-task__field__time">4 часа 40 минут</div>
-            <div class="done-task__field done-task__field__redmine"></div>
+            <div class="done-task__field done-task__field__deadline"><span class="done-deadline">5 дней</span></div>
+            <div class="done-task__field done-task__field__ticket"><a class="done-ticket" href="#">12312</a></div>
+            <div class="done-task__field done-task__field__time"><span class="done-time"> <span>4 часа</span> <span>40 минут</span> </span></div>
+            
 
             <div class="done-task__additional">
                 <div class="done-task__additional__item">
@@ -93,16 +114,16 @@
 
         <article class="done-task">
 
-            <div class="done-task__field done-task__field__marker">After test</div>
+            <div class="done-task__custom"></div>              <div class="done-task__field done-task__field__marker">After test</div>
             <div class="done-task__field done-task__field__assigner"><span class="done-user">ОК</span></div>
             <div class="done-task__field done-task__field__assignee"><span class="done-user done-user__at">АТ</span></div>
             <div class="done-task__field done-task__field__task">Оживи систему тасков</div>
             <div class="done-task__field done-task__field__description">Устойчивость, согласно третьему закону Ньютона, стационарно вращает собственный кинетический момент. Расчеты предсказывают, что устойчивость характеризует лазерный кинетический момент, перейдя к исследованию устойчивости линейных гироскопических систем с искусственными силами. Внешнее кольцо, в первом приближении, известно. Тангаж устойчиво искажает маховик. ПИГ методически связывает дифференциальный ПИГ. Уравнение Эйлера определяет ротор, что видно из уравнения кинетической энергии ротора.</div>
             <div class="done-task__field done-task__field__tester"></div>
-            <div class="done-task__field done-task__field__deadline">5 дней</div>
-            <div class="done-task__field done-task__field__ticket">12345</div>
-            <div class="done-task__field done-task__field__time">4 часа 40 минут</div>
-            <div class="done-task__field done-task__field__redmine"></div>
+            <div class="done-task__field done-task__field__deadline"><span class="done-deadline">5 дней</span></div>
+            <div class="done-task__field done-task__field__ticket"><a class="done-ticket" href="#">12312</a></div>
+            <div class="done-task__field done-task__field__time"><span class="done-time"> <span>4 часа</span> <span>40 минут</span> </span></div>
+            
 
             <div class="done-task__additional">
                 <div class="done-task__additional__item">
@@ -136,7 +157,7 @@
 
         <article class="done-task">
 
-            <div class="done-task__field done-task__field__marker"></div>
+            <div class="done-task__custom"></div>              <div class="done-task__field done-task__field__marker"></div>
 
             <div class="done-task__field done-task__field__assigner">
                 <div class="done-user done-user">
@@ -169,10 +190,10 @@
                 </div>
 
             </div>
-            <div class="done-task__field done-task__field__deadline">5 дней</div>
-            <div class="done-task__field done-task__field__ticket">12345</div>
-            <div class="done-task__field done-task__field__time">4 часа 40 минут</div>
-            <div class="done-task__field done-task__field__redmine"></div>
+            <div class="done-task__field done-task__field__deadline"><span class="done-deadline">5 дней</span></div>
+            <div class="done-task__field done-task__field__ticket"><a class="done-ticket" href="#">12312</a></div>
+            <div class="done-task__field done-task__field__time"><span class="done-time"> <span>4 часа</span> <span>40 минут</span> </span></div>
+            
 
             <div class="done-task__additional">
                 <div class="done-task__additional__item">
@@ -191,8 +212,9 @@
                 <div class="done-task__additional__item">
                     Действия:
                     <div class="done-actions">
-                        <div class="done-actions__action">В спринт</div>
                         <div class="done-actions__action">Детали</div>
+                        <div class="done-actions__action">Убрать из спринта</div>
+                        <div class="done-actions__action">Готово</div>
                         <div class="done-actions__action">Удалить</div>
                     </div>
                 </div>
@@ -202,7 +224,7 @@
 
         <article class="done-task">
 
-            <div class="done-task__field done-task__field__marker">After test</div>
+            <div class="done-task__custom"></div>              <div class="done-task__field done-task__field__marker">After test</div>
             <div class="done-task__field done-task__field__assigner">
                 <div class="done-user done-user">
                     ОК
@@ -222,10 +244,10 @@
             <div class="done-task__field done-task__field__task">Оживи систему тасков</div>
             <div class="done-task__field done-task__field__description">Устойчивость, согласно третьему закону Ньютона, стационарно вращает собственный кинетический момент. Расчеты предсказывают, что устойчивость характеризует лазерный кинетический момент, перейдя к исследованию устойчивости линейных гироскопических систем с искусственными силами. Внешнее кольцо, в первом приближении, известно. Тангаж устойчиво искажает маховик. ПИГ методически связывает дифференциальный ПИГ. Уравнение Эйлера определяет ротор, что видно из уравнения кинетической энергии ротора.</div>
             <div class="done-task__field done-task__field__tester"><span class="done-user done-user__ec">ЕС</span></div>
-            <div class="done-task__field done-task__field__deadline">5 дней</div>
-            <div class="done-task__field done-task__field__ticket">12345</div>
-            <div class="done-task__field done-task__field__time">4 часа 40 минут</div>
-            <div class="done-task__field done-task__field__redmine"></div>
+            <div class="done-task__field done-task__field__deadline"><span class="done-deadline">5 дней</span></div>
+            <div class="done-task__field done-task__field__ticket"><a class="done-ticket" href="#">12312</a></div>
+            <div class="done-task__field done-task__field__time"><span class="done-time"> <span>4 часа</span> <span>40 минут</span> </span></div>
+            
 
             <div class="done-task__additional">
                 <div class="done-task__additional__item">
@@ -244,8 +266,9 @@
                 <div class="done-task__additional__item">
                     Действия:
                     <div class="done-actions">
-                        <div class="done-actions__action">В спринт</div>
                         <div class="done-actions__action">Детали</div>
+                        <div class="done-actions__action">Убрать из спринта</div>
+                        <div class="done-actions__action">Готово</div>
                         <div class="done-actions__action">Удалить</div>
                     </div>
                 </div>
@@ -259,7 +282,7 @@
 
         <article class="done-task">
 
-            <div class="done-task__field done-task__field__marker"></div>
+            <div class="done-task__custom"></div>              <div class="done-task__field done-task__field__marker"></div>
             <div class="done-task__field done-task__field__assigner"><span class="done-user">ОК</span></div>
             <div class="done-task__field done-task__field__assignee"><span class="done-user done-user__at">АТ</span></div>
             <div class="done-task__field done-task__field__task">Оживи систему тасков</div>
@@ -276,10 +299,10 @@
                 </div>
 
             </div>
-            <div class="done-task__field done-task__field__deadline">5 дней</div>
-            <div class="done-task__field done-task__field__ticket">12345</div>
-            <div class="done-task__field done-task__field__time">4 часа 40 минут</div>
-            <div class="done-task__field done-task__field__redmine"></div>
+            <div class="done-task__field done-task__field__deadline"><span class="done-deadline">5 дней</span></div>
+            <div class="done-task__field done-task__field__ticket"><a class="done-ticket" href="#">12312</a></div>
+            <div class="done-task__field done-task__field__time"><span class="done-time"> <span>4 часа</span> <span>40 минут</span> </span></div>
+            
 
             <div class="done-task__additional">
                 <div class="done-task__additional__item">
@@ -298,8 +321,8 @@
                 <div class="done-task__additional__item">
                     Действия:
                     <div class="done-actions">
-                        <div class="done-actions__action">В спринт</div>
-                        <div class="done-actions__action">Детали</div>
+                        <div class="done-actions__action">Сделано</div>
+                        <div class="done-actions__action">Не сделано</div>
                         <div class="done-actions__action">Удалить</div>
                     </div>
                 </div>
@@ -309,16 +332,16 @@
 
         <article class="done-task">
 
-            <div class="done-task__field done-task__field__marker">After test</div>
+            <div class="done-task__custom"></div>              <div class="done-task__field done-task__field__marker">After test</div>
             <div class="done-task__field done-task__field__assigner"><span class="done-user">ОК</span></div>
             <div class="done-task__field done-task__field__assignee"><span class="done-user done-user__at">АТ</span></div>
             <div class="done-task__field done-task__field__task">Оживи систему тасков</div>
             <div class="done-task__field done-task__field__description">Устойчивость, согласно третьему закону Ньютона, стационарно вращает собственный кинетический момент. Расчеты предсказывают, что устойчивость характеризует лазерный кинетический момент, перейдя к исследованию устойчивости линейных гироскопических систем с искусственными силами. Внешнее кольцо, в первом приближении, известно. Тангаж устойчиво искажает маховик. ПИГ методически связывает дифференциальный ПИГ. Уравнение Эйлера определяет ротор, что видно из уравнения кинетической энергии ротора.</div>
             <div class="done-task__field done-task__field__tester"><span class="done-user done-user__ec">ЕС</span></div>
-            <div class="done-task__field done-task__field__deadline">5 дней</div>
-            <div class="done-task__field done-task__field__ticket">12345</div>
-            <div class="done-task__field done-task__field__time">4 часа 40 минут</div>
-            <div class="done-task__field done-task__field__redmine"></div>
+            <div class="done-task__field done-task__field__deadline"><span class="done-deadline">5 дней</span></div>
+            <div class="done-task__field done-task__field__ticket"><a class="done-ticket" href="#">12312</a></div>
+            <div class="done-task__field done-task__field__time"><span class="done-time"> <span>4 часа</span> <span>40 минут</span> </span></div>
+            
 
             <div class="done-task__additional">
                 <div class="done-task__additional__item">
@@ -337,8 +360,8 @@
                 <div class="done-task__additional__item">
                     Действия:
                     <div class="done-actions">
-                        <div class="done-actions__action">В спринт</div>
-                        <div class="done-actions__action">Детали</div>
+                        <div class="done-actions__action">Сделано</div>
+                        <div class="done-actions__action">Не сделано</div>
                         <div class="done-actions__action">Удалить</div>
                     </div>
                 </div>
@@ -356,7 +379,7 @@
 
         <article class="done-task">
 
-            <div class="done-task__field done-task__field__marker"></div>
+            <div class="done-task__custom"></div>              <div class="done-task__field done-task__field__marker"></div>
             <div class="done-task__field done-task__field__assigner"><span class="done-user">ОК</span></div>
             <div class="done-task__field done-task__field__assignee"><span class="done-user done-user__at">АТ</span></div>
             <div class="done-task__field done-task__field__task">Оживи систему тасков</div>
@@ -373,10 +396,10 @@
                 </div>
 
             </div>
-            <div class="done-task__field done-task__field__deadline">5 дней</div>
-            <div class="done-task__field done-task__field__ticket">12345</div>
-            <div class="done-task__field done-task__field__time">4 часа 40 минут</div>
-            <div class="done-task__field done-task__field__redmine"></div>
+            <div class="done-task__field done-task__field__deadline"><span class="done-deadline">5 дней</span></div>
+            <div class="done-task__field done-task__field__ticket"><a class="done-ticket" href="#">12312</a></div>
+            <div class="done-task__field done-task__field__time"><span class="done-time"> <span>4 часа</span> <span>40 минут</span> </span></div>
+            
 
             <div class="done-task__additional">
                 <div class="done-task__additional__item">
@@ -396,7 +419,6 @@
                     Действия:
                     <div class="done-actions">
                         <div class="done-actions__action">В спринт</div>
-                        <div class="done-actions__action">Детали</div>
                         <div class="done-actions__action">Удалить</div>
                     </div>
                 </div>
@@ -406,16 +428,19 @@
 
         <article class="done-task">
 
-            <div class="done-task__field done-task__field__marker">After test</div>
+            <div class="done-task__custom"></div>              <div class="done-task__field done-task__field__marker">After test</div>
             <div class="done-task__field done-task__field__assigner"><span class="done-user">ОК</span></div>
             <div class="done-task__field done-task__field__assignee"><span class="done-user done-user__at">АТ</span></div>
             <div class="done-task__field done-task__field__task">Оживи систему тасков</div>
             <div class="done-task__field done-task__field__description">Устойчивость, согласно третьему закону Ньютона, стационарно вращает собственный кинетический момент. Расчеты предсказывают, что устойчивость характеризует лазерный кинетический момент, перейдя к исследованию устойчивости линейных гироскопических систем с искусственными силами. Внешнее кольцо, в первом приближении, известно. Тангаж устойчиво искажает маховик. ПИГ методически связывает дифференциальный ПИГ. Уравнение Эйлера определяет ротор, что видно из уравнения кинетической энергии ротора.</div>
             <div class="done-task__field done-task__field__tester"><span class="done-user done-user__ec">ЕС</span></div>
-            <div class="done-task__field done-task__field__deadline">5 дней</div>
-            <div class="done-task__field done-task__field__ticket">12345</div>
-            <div class="done-task__field done-task__field__time">4 часа 40 минут</div>
-            <div class="done-task__field done-task__field__redmine"></div>
+            <div class="done-task__field done-task__field__deadline">
+                <span class="done-deadline">5 дней</span>
+            </div>
+            <div class="done-task__field done-task__field__ticket"><a class="done-ticket" href="#">12312</a></div>
+            <div class="done-task__field done-task__field__time"><span class="done-time"> <span>4 часа</span> <span>40 минут</span> </span></div>
+
+            
 
             <div class="done-task__additional">
                 <div class="done-task__additional__item">
@@ -444,7 +469,6 @@
         </article>
 
     </section>
-
 
 
 </div>
