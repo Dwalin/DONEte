@@ -6,6 +6,8 @@
 
 @import 'normalize';
 
+@import '../../app/**/index.styl';
+
 $c-main-text = rgba(80, 80, 80, 1);
 $c-main-separator = rgba(220, 220, 220, .25);
 
@@ -28,6 +30,7 @@ body {
 }
 
 .done-border {
+	min-height: 100vh;
 	border-top: 1vmin lighten(rgba(0, 160, 200, 1), 10 ) solid;
 	border-bottom: 1vmin rgba(0, 160, 200, 1) solid;
 	background-image: linear-gradient(to bottom, lighten(rgba(0, 160, 200, 1), 10 ) 0%,rgba(0, 160, 200, 1) 100%), linear-gradient(to bottom, lighten(rgba(0, 160, 200, 1), 10 ) 0%,rgba(0, 160, 200, 1) 100%);

@@ -4,13 +4,29 @@
             "id": 1,
             "task": "Test task.",
             "state": "todo",
-            "description": "Task description."
+            "description": "Task description.",
+            "tags": [
+                {
+                    "name": "tag1"
+                },
+                {
+                    "name": "tag2"
+                }
+            ]
         },
         {
             "id": 2,
             "task": "Test task 2.",
             "state": "sprint",
-            "description": "Task description 2."
+            "description": "Task description 2.",
+            "tags": [
+                {
+                    "name": "tag4"
+                },
+                {
+                    "name": "tag3"
+                }
+            ]
         },
         {
             "id": 3,

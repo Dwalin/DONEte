@@ -1,6 +1,6 @@
 var applicationRoot = __dirname.replace(/\\/g, "/"),
     ipaddress = '127.0.0.1',
-    port = 9001,
+    port = 9002,
     mockRoot = applicationRoot,
     mockFilePattern = '.json',
     mockRootPattern = mockRoot + '/**/*' + mockFilePattern,
@@ -24,10 +24,17 @@ var files = glob.sync(mockRootPattern);
 /* Register mappings for each file found in the directory tree. */
 if (files && files.length > 0) {
     files.forEach(function (fileName) {
+        var methodRegExp = /get|post|delete|put/;
+        var method = fileName.match(methodRegExp);
+        method = method ? method[0] : 'get';
 
-        var mapping = apiRoot + fileName.replace(mockRoot, '').replace(mockFilePattern, '');
+        console.log(method);
 
-        app.get(mapping, function (req, res) {
+        var mapping = apiRoot + fileName.replace(mockRoot, '')
+                .replace(mockFilePattern, '')
+                .replace(/.(get|post|delete|put)/, '');
+
+        app[method](mapping, function (req, res) {
             var data = fs.readFileSync(fileName, 'utf8');
             res.writeHead(200, {'Content-Type': 'application/json'});
             res.write(data);

@@ -110,7 +110,7 @@ module.exports = {
         proxy: {
             '/api/*': {
                 //target: 'http://Task.mjolnir.com.ua',
-                target: 'http://localhost:9001',
+                target: 'http://localhost:9002',
                 secure: false,
                 changeOrigin: true
             }

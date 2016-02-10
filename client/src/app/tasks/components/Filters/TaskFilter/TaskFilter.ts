@@ -6,6 +6,7 @@ import {ITask} from '../../../models/ITask';
 import {Observable} from 'rxjs/Observable';
 
 interface ICounters {
+    all: number;
     todo: number;
     sprint: number;
     testing: number;
@@ -24,13 +25,15 @@ export class TaskFilter {
     @Output()
     filter: EventEmitter<any> = new EventEmitter(false);
 
-    counters: ICounters = {todo: 0, sprint: 0, testing: 0, done: 0};
+    counters: ICounters = {all: 0, todo: 0, sprint: 0, testing: 0, done: 0};
+    currentFilter: string = 'all';
 
     constructor() {
     }
 
     ngOnInit() {
         this.tasks$.subscribe((tasks: ITask[]) => {
+            this.counters.all = tasks.length;
             this.counters.todo = tasks.filter((task: ITask) => task.state === 'todo').length;
             this.counters.sprint = tasks.filter((task: ITask) => task.state === 'sprint').length;
             this.counters.testing = tasks.filter((task: ITask) => task.state === 'testing').length;
@@ -38,7 +41,12 @@ export class TaskFilter {
         });
     }
 
+    isActive(filterName: string): boolean{
+        return filterName === this.currentFilter;
+    }
+
     onClickFilter(filterName) {
+        this.currentFilter = filterName;
         this.filter.emit(filterName);
     }
 }

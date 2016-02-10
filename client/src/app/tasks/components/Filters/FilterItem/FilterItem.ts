@@ -9,13 +9,16 @@ import {NgIf} from 'angular2/common';
 })
 export class FilterItem {
     @Input()
-    name;
+    name: string;
 
     @Input()
-    count;
+    count: number;
 
     @Input()
-    text;
+    text: string;
+
+    @Input()
+    active: boolean;
 
     @Output()
     filter: EventEmitter<any> = new EventEmitter(false);

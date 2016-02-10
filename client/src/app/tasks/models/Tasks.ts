@@ -57,7 +57,7 @@ export class Tasks {
         let filters = this.actions$
             .filter(action => action.type === FILTER_TASKS)
             .mergeMap(action => api.filterTasks(action.payload),
-                (action, payload) => ({type: FILTERED_TASKS, payload: action.payload}));
+                (action, payload: ITask) => ({type: FILTERED_TASKS, payload}));
 
         Observable
             .merge(adds, loads, updateOne, deleteOne, filters)
@@ -73,7 +73,11 @@ export class Tasks {
     }
 
     filterTasks(filterName: string) {
-        this.actions$.next({type: FILTER_TASKS, payload: filterName});
+        if(filterName === 'all'){
+            this.loadTasks();
+        } else {
+            this.actions$.next({type: FILTER_TASKS, payload: filterName});
+        }
     }
 
     deleteTask(task: ITask) {

@@ -5,13 +5,13 @@ import {
     EventEmitter
 } from 'angular2/core';
 
-import {NgFor} from 'angular2/common';
+import {NgFor, NgIf} from 'angular2/common';
 
 import {TaskItem} from '../Task/TaskItem';
 
 @Component({
     selector: 'task-list',
-    directives: [NgFor, TaskItem],
+    directives: [NgFor, NgIf, TaskItem],
     template: require('./TasksList.html')
 })
 export class TaskList {
