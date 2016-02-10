@@ -1,0 +1,14 @@
+<nav class="done-navigation">
+    <filter-item text="TODO" name="todo"
+                 [count]="counters.todo"
+                 (filter)="onClickFilter($event)"></filter-item>
+    <filter-item text="Sprint" name="sprint"
+                 [count]="counters.sprint"
+                 (filter)="onClickFilter($event)"></filter-item>
+    <filter-item text="Testing" name="testing"
+                 [count]="counters.testing"
+                 (filter)="onClickFilter($event)"></filter-item>
+    <filter-item text="Done" name="done"
+                 [count]="counters.done"
+                 (filter)="onClickFilter($event)"></filter-item>
+</nav>

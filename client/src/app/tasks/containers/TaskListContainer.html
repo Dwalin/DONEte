@@ -1,0 +1,7 @@
+<task-filter
+    [tasks]="tasks.tasks$"
+    (filter)="onFilterTasks($event)">
+</task-filter>
+
+<task-list [tasks]="tasks.tasks$ | async"
+           (deleteTask)="onDeleteTask($event)"></task-list>

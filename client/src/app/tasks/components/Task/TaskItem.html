@@ -1,0 +1,41 @@
+<article class="done-task">
+    <div class="done-task__custom"></div>
+    <div class="done-task__field done-task__field__marker">{{task.marker}}</div>
+    <div class="done-task__field done-task__field__assigner"><span class="done-user">{{task.owner}}</span></div>
+    <div class="done-task__field done-task__field__assignee"><span class="done-user done-user__at">{{task.assignee}}</span>
+    </div>
+    <div class="done-task__field done-task__field__task">{{task.task}}</div>
+    <div class="done-task__field done-task__field__description">
+        {{task.description}}
+    </div>
+    <div class="done-task__field done-task__field__tester"><span class="done-user done-user__ec">{{task.qa}}</span>
+    </div>
+    <div class="done-task__field done-task__field__deadline"><span class="done-deadline">{{task.deadline}}</span></div>
+    <div class="done-task__field done-task__field__ticket"><a class="done-ticket" href="#" target="_blank">{{task.ticket}}</a></div>
+    <div class="done-task__field done-task__field__time"><span
+        class="done-time"> {{task.timeSpent}}</span>
+    </div>
+
+    <div class="done-task__additional">
+        <div class="done-task__additional__item">
+            Теги:
+            <div class="done-tags">
+                <div class="done-tags__tag"
+                     *ngFor="#tag of task.tags">
+                    {{tag.name}}
+                </div>
+                <div class="done-tags__add">+</div>
+            </div>
+        </div>
+
+        <div class="done-task__additional__item">
+            Действия:
+            <div class="done-actions">
+                <button class="done-actions__action">Сделано</button>
+                <button class="done-actions__action">Не сделано</button>
+                <button class="done-actions__action"
+                (click)="onDeleteTask(task)">Удалить</button>
+            </div>
+        </div>
+    </div>
+</article>
