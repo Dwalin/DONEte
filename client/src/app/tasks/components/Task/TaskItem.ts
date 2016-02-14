@@ -18,8 +18,10 @@ export class TaskItem {
 
     @Output()
     done: EventEmitter<any> = new EventEmitter(false);
+
     @Output()
     notDone: EventEmitter<any> = new EventEmitter(false);
+
     @Output()
     deleteTask: EventEmitter<any> = new EventEmitter(false);
 

@@ -1,7 +1,46 @@
 <task-filter
-    [tasks]="tasks.tasks$"
-    (filter)="onFilterTasks($event)">
+        [amount]="tasksService.amount$"
+        (filter)="onFilterTasks($event)">
 </task-filter>
 
-<task-list [tasks]="tasks.tasks$ | async"
-           (deleteTask)="onDeleteTask($event)"></task-list>
+<add-task-form></add-task-form>
+
+<section class="done-block done-block_todo"
+         *ngIf="showSection('todo')">
+    <div class="done-block__header">
+        Todo:
+    </div>
+    <task-list [tasks]="tasks.todo"
+               [notFoundMsg]="'Nothing in todo!'"
+               (deleteTask)="onDeleteTask($event)"></task-list>
+</section>
+
+<section class="done-block done-block_sprint"
+         *ngIf="showSection('sprint')">
+    <div class="done-block__header">
+        In sprint:
+    </div>
+    <task-list [tasks]="tasks.inSprint"
+               [notFoundMsg]="'Nothing in sprint!'"
+               (deleteTask)="onDeleteTask($event)"></task-list>
+</section>
+
+<section class="done-block done-block_testing"
+         *ngIf="showSection('testing')">
+    <div class="done-block__header">
+        Testing:
+    </div>
+    <task-list [tasks]="tasks.testing"
+               [notFoundMsg]="'Nothing in testing!'"
+               (deleteTask)="onDeleteTask($event)"></task-list>
+</section>
+
+<section class="done-block done-block_done"
+         *ngIf="showSection('done')">
+    <div class="done-block__header">
+        Done:
+    </div>
+    <task-list [tasks]="tasks.done"
+               [notFoundMsg]="'Nothing in done!'"
+               (deleteTask)="onDeleteTask($event)"></task-list>
+</section>

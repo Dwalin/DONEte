@@ -1,22 +1,22 @@
 <nav class="done-navigation">
     <filter-item text="All" name="all"
-                 [count]="counters.all"
+                 [count]="amount.all"
                  [active]="isActive('all')"
                  (filter)="onClickFilter($event)"></filter-item>
     <filter-item text="TODO" name="todo"
-                 [count]="counters.todo"
+                 [count]="amount.todo"
                  [active]="isActive('todo')"
                  (filter)="onClickFilter($event)"></filter-item>
     <filter-item text="Sprint" name="sprint"
-                 [count]="counters.sprint"
+                 [count]="amount.sprint"
                  [active]="isActive('sprint')"
                  (filter)="onClickFilter($event)"></filter-item>
     <filter-item text="Testing" name="testing"
-                 [count]="counters.testing"
+                 [count]="amount.testing"
                  [active]="isActive('testing')"
                  (filter)="onClickFilter($event)"></filter-item>
     <filter-item text="Done" name="done"
-                 [count]="counters.done"
+                 [count]="amount.done"
                  [active]="isActive('done')"
                  (filter)="onClickFilter($event)"></filter-item>
 </nav>

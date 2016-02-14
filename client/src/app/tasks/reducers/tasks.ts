@@ -1,5 +1,8 @@
 import {Action, Reducer} from '@ngrx/store';
 
+import {ITask} from '../models/ITask';
+import {IAmount} from '../models/ITasks';
+
 import {
     ADDING_TASK,
     ADDED_TASK,
@@ -28,6 +31,8 @@ export const tasks: Reducer<any> = (state = initState, action: Action) => {
     switch (action.type) {
         case ADDED_TASK:
             state.tasks = [action.payload.data, ...state.tasks];
+            state.amount[action.payload.data.state] += 1;
+            state.amount.all += 1;
             return Object.assign({}, state);
 
         case UPDATING_TASK:
@@ -36,6 +41,7 @@ export const tasks: Reducer<any> = (state = initState, action: Action) => {
         case FILTERED_TASKS:
         case LOADED_TASKS:
             state.tasks = [...action.payload.data];
+            state.amount = action.payload.meta.amount;
             return Object.assign({}, state);
 
         case DELETED_TASK:
@@ -48,3 +54,17 @@ export const tasks: Reducer<any> = (state = initState, action: Action) => {
             return state;
     }
 };
+
+
+//TODO remove
+function calcTasksAmont(tasks: ITask[]){
+    let amount: IAmount = <IAmount>{};
+
+    amount.all = tasks.length;
+    amount.todo = tasks.filter((task: ITask) => task.state === 'todo').length;
+    amount.sprint = tasks.filter((task: ITask) => task.state === 'sprint').length;
+    amount.testing = tasks.filter((task: ITask) => task.state === 'testing').length;
+    amount.done = tasks.filter((task: ITask) => task.state === 'done').length;
+
+    return amount;
+}

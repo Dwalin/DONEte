@@ -4,7 +4,7 @@ import {Observable} from 'rxjs/Observable';
 import {BehaviorSubject} from 'rxjs/subject/BehaviorSubject';
 import {ApiService} from '../services/api';
 import {ITask} from './ITask';
-import {ITasks} from './ITasks';
+import {ITasks, IAmount} from './ITasks';
 
 export const ADDING_TASK = 'ADDING_TASK';
 export const ADDED_TASK = 'ADDED_TASK';
@@ -25,6 +25,7 @@ const FILTER_TASKS = 'FILTER_TASKS';
 @Injectable()
 export class Tasks {
     tasks$: Observable<ITask[]>;
+    amount$: Observable<IAmount>;
 
     private actions$ = new BehaviorSubject<Action>({type: null, payload: null});
 
@@ -33,6 +34,10 @@ export class Tasks {
 
         this.tasks$ = store$.map((store) => {
             return store.tasks;
+        });
+
+        this.amount$ = store$.map((store) => {
+            return store.amount;
         });
 
         let adds = this.actions$

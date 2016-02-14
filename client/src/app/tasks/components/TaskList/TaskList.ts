@@ -9,16 +9,18 @@ import {NgFor, NgIf} from 'angular2/common';
 
 import {TaskItem} from '../Task/TaskItem';
 
-import AddTaskForm from '../AddTaskForm/AddTaskForm';
 
 @Component({
     selector: 'task-list',
-    directives: [NgFor, NgIf, TaskItem, AddTaskForm],
+    directives: [NgFor, NgIf, TaskItem],
     template: require('./TasksList.html')
 })
 export class TaskList {
     @Input()
     tasks;
+
+    @Input()
+    notFoundMsg: string = 'Tasks not found!';
 
     @Output()
     deleteTask = new EventEmitter(false);

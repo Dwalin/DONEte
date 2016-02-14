@@ -10,21 +10,23 @@ import {Tasks} from '../../models/Tasks';
     template: require('./AddTaskForm.html')
 })
 export default class AddTaskForm {
-    private taskForm;
+    taskForm;
+    taskModel = {
+        state: 'todo',
+        user: {}
+    };
 
     constructor(public builder: FormBuilder, public tasks: Tasks) {
         this.taskForm = builder.group({
             task: ['', Validators.required],
             description: ['', Validators.required],
-            ticket: ['']
+            ticket: [''],
+            assignee: ['']
         });
     }
 
     createNewTask(event){
         event.preventDefault();
-
-        const task = this.taskForm.value;
-        task.state = 'todo';
-        this.tasks.addTask(task);
+        this.tasks.addTask(this.taskModel);
     }
 }

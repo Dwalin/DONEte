@@ -7,6 +7,7 @@
             <input type="text"
                    id="task"
                    placeholder="Task name"
+                   [(ngModel)] = "taskModel.task"
                    ngControl="task">
         </div>
         <div>
@@ -14,6 +15,7 @@
             <input type="text"
                    id="description"
                    placeholder="Task description"
+                   [(ngModel)] = "taskModel.description"
                    ngControl="description">
         </div>
         <div>
@@ -21,7 +23,15 @@
             <input type="text"
                    id="ticket"
                    placeholder="Ticket number"
+                   [(ngModel)] = "taskModel.ticket"
                    ngControl="ticket">
+        </div>
+        <div>
+            <label for="assignee">Assignee</label>
+            <input type="text"
+                   id="assignee"
+                   [(ngModel)] = "taskModel.user.assignee"
+                   ngControl="assignee">
         </div>
 
         <div>

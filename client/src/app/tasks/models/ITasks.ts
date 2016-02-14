@@ -1,6 +1,6 @@
 import {ITask} from './ITask';
 
-interface IAmount {
+export interface IAmount {
     all: number;
     todo: number;
     sprint: number;
