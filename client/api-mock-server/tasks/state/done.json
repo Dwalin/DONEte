@@ -1,4 +1,13 @@
 {
     "data": [
-    ]
+    ],
+    "meta": {
+        "amount": {
+            "all": 7,
+            "todo": 2,
+            "sprint": 1,
+            "testing": 2,
+            "done": 2
+        }
+    }
 }

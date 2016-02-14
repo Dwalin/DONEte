@@ -27,6 +27,7 @@ export class ApiService {
     }
 
     createTask(body: any): Observable<ITask> {
+        console.log(body);
         return this.request({
             body,
             method: RequestMethod.Post,

@@ -9,9 +9,11 @@ import {NgFor, NgIf} from 'angular2/common';
 
 import {TaskItem} from '../Task/TaskItem';
 
+import AddTaskForm from '../AddTaskForm/AddTaskForm';
+
 @Component({
     selector: 'task-list',
-    directives: [NgFor, NgIf, TaskItem],
+    directives: [NgFor, NgIf, TaskItem, AddTaskForm],
     template: require('./TasksList.html')
 })
 export class TaskList {

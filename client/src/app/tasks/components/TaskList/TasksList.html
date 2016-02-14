@@ -1,4 +1,5 @@
 <div class="TaskList">
+    <add-task-form></add-task-form>
     <task-item *ngFor="#task of tasks; #i = index"
                [task]="task"
                (deleteTask)="onDeleteTask($event)"></task-item>

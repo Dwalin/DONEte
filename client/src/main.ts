@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function main() {
         ...ROUTER_PROVIDERS,
         ...API_PROVIDERS,
         provide(LocationStrategy, {useClass: HashLocationStrategy}),
-        provideStore({tasks}, {tasks: []})
+        provideStore({tasks})
     ])
         .catch(err => console.error(err));
 });

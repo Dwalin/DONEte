@@ -1,5 +1,14 @@
 import {ITask} from './ITask';
 
-export interface ITasks extends Map<String, any> {
+interface IAmount {
+    all: number;
+    todo: number;
+    sprint: number;
+    testing: number;
+    done: number;
+}
+
+export interface ITasks {
     tasks: ITask[];
+    amount: IAmount;
 }

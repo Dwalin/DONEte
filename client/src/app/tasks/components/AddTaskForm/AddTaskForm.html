@@ -1,0 +1,31 @@
+<div class="AddTaskForm">
+    Add new task:
+
+    <form [ngFormModel]="taskForm" (submit)="createNewTask($event)">
+        <div>
+            <label for="task">Task</label>
+            <input type="text"
+                   id="task"
+                   placeholder="Task name"
+                   ngControl="task">
+        </div>
+        <div>
+            <label for="description">Description</label>
+            <input type="text"
+                   id="description"
+                   placeholder="Task description"
+                   ngControl="description">
+        </div>
+        <div>
+            <label for="ticket">Ticket</label>
+            <input type="text"
+                   id="ticket"
+                   placeholder="Ticket number"
+                   ngControl="ticket">
+        </div>
+
+        <div>
+            <button type="submit">Create</button>
+        </div>
+    </form>
+</div>

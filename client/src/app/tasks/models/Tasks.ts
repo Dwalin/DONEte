@@ -24,12 +24,16 @@ const FILTER_TASKS = 'FILTER_TASKS';
 
 @Injectable()
 export class Tasks {
-    tasks$: Observable<ITasks>;
+    tasks$: Observable<ITask[]>;
 
     private actions$ = new BehaviorSubject<Action>({type: null, payload: null});
 
     constructor(private _store: Store<any>, api: ApiService) {
-        this.tasks$ = this._store.select<ITasks>('tasks');
+        const store$ = this._store.select<ITasks>('tasks');
+
+        this.tasks$ = store$.map((store) => {
+            return store.tasks;
+        });
 
         let adds = this.actions$
             .filter(action => action.type === ADD_TASK)
@@ -51,7 +55,7 @@ export class Tasks {
 
         let deleteOne = this.actions$
             .filter(action => action.type === DELETE_TASK)
-            .mergeMap(action => api.deleteTask(action.payload),
+            .mergeMap(action => api.deleteTask(action.payload.id),
                 (action, payload) => ({type: DELETED_TASK, payload: action.payload}));
 
         let filters = this.actions$
@@ -62,6 +66,10 @@ export class Tasks {
         Observable
             .merge(adds, loads, updateOne, deleteOne, filters)
             .subscribe((action: Action) => _store.dispatch(action));
+    }
+
+    addTask(task){
+        this.actions$.next({type: ADD_TASK, payload: task});
     }
 
     loadTasks() {
@@ -81,6 +89,6 @@ export class Tasks {
     }
 
     deleteTask(task: ITask) {
-        this.actions$.next({type: DELETE_TASK, payload: task.id});
+        this.actions$.next({type: DELETE_TASK, payload: task});
     }
 }

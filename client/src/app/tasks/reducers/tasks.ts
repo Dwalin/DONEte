@@ -11,23 +11,38 @@ import {
     FILTERED_TASKS
 } from '../models/Tasks';
 
-export const CREATE = 'CREATE';
-export const UPDATE = 'UPDATE';
+import {ITasks} from '../models/ITasks';
 
-export const tasks: Reducer<any> = (state = [], action: Action) => {
+const initState: ITasks = {
+    tasks: [],
+    amount:{
+        all: 0,
+        sprint: 0,
+        todo: 0,
+        testing: 0,
+        done: 0
+    }
+};
+
+export const tasks: Reducer<any> = (state = initState, action: Action) => {
     switch (action.type) {
-        case ADDING_TASK:
-            return state;
+        case ADDED_TASK:
+            state.tasks = [action.payload.data, ...state.tasks];
+            return Object.assign({}, state);
 
         case UPDATING_TASK:
             return Object.assign(state, action.payload);
 
         case FILTERED_TASKS:
         case LOADED_TASKS:
-            return [...action.payload.data];
+            state.tasks = [...action.payload.data];
+            return Object.assign({}, state);
 
         case DELETED_TASK:
-            return state.filter(task => task.id !== action.payload);
+            state.tasks = state.tasks.filter(task => task.id !== action.payload.id);
+            state.amount[action.payload.state] -= 1;
+            state.amount.all -= 1;
+            return Object.assign({}, state);
 
         default:
             return state;
