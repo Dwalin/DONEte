@@ -56,7 +56,7 @@ export class Tasks {
         let updateOne = this.actions$
             .filter(action => action.type === UPDATE_TASK)
             .mergeMap(action => api.updateTask(action.payload),
-                (action, payload: ITask) => ({type: UPDATED_TASK, payload}));
+                (action, payload: ITask) => ({type: UPDATED_TASK, payload: action.payload}));
 
         let deleteOne = this.actions$
             .filter(action => action.type === DELETE_TASK)

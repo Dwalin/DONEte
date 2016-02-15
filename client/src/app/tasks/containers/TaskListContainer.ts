@@ -41,6 +41,38 @@ export class TaskListContainer {
         this.tasksService.deleteTask(task);
     }
 
+    onMoveInSprint(task: ITask): void {
+        let updatedTask = Object.assign({}, task, {
+            state: 'sprint'
+        });
+
+        this.tasksService.updateTask(updatedTask);
+    }
+
+    onMoveInDone(task: ITask): void {
+        let updatedTask = Object.assign({}, task, {
+            state: 'done'
+        });
+
+        this.tasksService.updateTask(updatedTask);
+    }
+
+    onMoveInTesting(task: ITask): void {
+        let updatedTask = Object.assign({}, task, {
+            state: 'testing'
+        });
+
+        this.tasksService.updateTask(updatedTask);
+    }
+
+    onMoveInTodo(task: ITask): void {
+        let updatedTask = Object.assign({}, task, {
+            state: 'todo'
+        });
+
+        this.tasksService.updateTask(updatedTask);
+    }
+
     onFilterTasks(filterName: string): void {
         this.currentFilter = filterName;
 

@@ -21,11 +21,11 @@
     ],
     "meta": {
         "amount": {
-            "all": 7,
-            "todo": 2,
-            "sprint": 1,
-            "testing": 2,
-            "done": 3
+            "all": 5,
+            "todo": 1,
+            "sprint": 2,
+            "testing": 1,
+            "done": 1
         }
     }
 }

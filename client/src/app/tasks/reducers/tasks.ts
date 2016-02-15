@@ -18,7 +18,7 @@ import {ITasks} from '../models/ITasks';
 
 const initState: ITasks = {
     tasks: [],
-    amount:{
+    amount: {
         all: 0,
         sprint: 0,
         todo: 0,
@@ -35,8 +35,12 @@ export const tasks: Reducer<any> = (state = initState, action: Action) => {
             state.amount.all += 1;
             return Object.assign({}, state);
 
-        case UPDATING_TASK:
-            return Object.assign(state, action.payload);
+        case UPDATED_TASK:
+            const filteredTasks = state.tasks.filter(item => item.id !== action.payload.id);
+            state.tasks = [action.payload, ...filteredTasks];
+            return Object.assign({}, state, {
+                amount: calcTasksAmont(state.tasks)
+            });
 
         case FILTERED_TASKS:
         case LOADED_TASKS:
@@ -55,9 +59,7 @@ export const tasks: Reducer<any> = (state = initState, action: Action) => {
     }
 };
 
-
-//TODO remove
-function calcTasksAmont(tasks: ITask[]){
+function calcTasksAmont(tasks: ITask[]) {
     let amount: IAmount = <IAmount>{};
 
     amount.all = tasks.length;

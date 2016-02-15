@@ -1,7 +1,11 @@
 <div class="TaskList">
     <task-item *ngFor="#task of tasks; #i = index"
                [task]="task"
-               (deleteTask)="onDeleteTask($event)"></task-item>
+               (deleteTask)="onDeleteTask($event)"
+               (moveInSprint)="onMoveInSprint($event)"
+               (moveInDone)="onMoveInDone($event)"
+               (moveInTesting)="onMoveInTesting($event)"
+               (moveInTodo)="onMoveInTodo($event)"></task-item>
     <div class="TaskList-notFound"
          *ngIf="!tasks.length">
         {{notFoundMsg}}

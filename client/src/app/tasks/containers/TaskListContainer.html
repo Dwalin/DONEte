@@ -12,7 +12,11 @@
     </div>
     <task-list [tasks]="tasks.todo"
                [notFoundMsg]="'Nothing in todo!'"
-               (deleteTask)="onDeleteTask($event)"></task-list>
+               (deleteTask)="onDeleteTask($event)"
+               (moveInSprint)="onMoveInSprint($event)"
+               (moveInDone)="onMoveInDone($event)"
+               (moveInTesting)="onMoveInTesting($event)"
+               (moveInTodo)="onMoveInTodo($event)"></task-list>
 </section>
 
 <section class="done-block done-block_sprint"
@@ -22,7 +26,11 @@
     </div>
     <task-list [tasks]="tasks.inSprint"
                [notFoundMsg]="'Nothing in sprint!'"
-               (deleteTask)="onDeleteTask($event)"></task-list>
+               (deleteTask)="onDeleteTask($event)"
+               (moveInSprint)="onMoveInSprint($event)"
+               (moveInDone)="onMoveInDone($event)"
+               (moveInTesting)="onMoveInTesting($event)"
+               (moveInTodo)="onMoveInTodo($event)"></task-list>
 </section>
 
 <section class="done-block done-block_testing"
@@ -32,7 +40,11 @@
     </div>
     <task-list [tasks]="tasks.testing"
                [notFoundMsg]="'Nothing in testing!'"
-               (deleteTask)="onDeleteTask($event)"></task-list>
+               (deleteTask)="onDeleteTask($event)"
+               (moveInSprint)="onMoveInSprint($event)"
+               (moveInDone)="onMoveInDone($event)"
+               (moveInTesting)="onMoveInTesting($event)"
+               (moveInTodo)="onMoveInTodo($event)"></task-list>
 </section>
 
 <section class="done-block done-block_done"
@@ -42,5 +54,9 @@
     </div>
     <task-list [tasks]="tasks.done"
                [notFoundMsg]="'Nothing in done!'"
-               (deleteTask)="onDeleteTask($event)"></task-list>
+               (deleteTask)="onDeleteTask($event)"
+               (moveInSprint)="onMoveInSprint($event)"
+               (moveInDone)="onMoveInDone($event)"
+               (moveInTesting)="onMoveInTesting($event)"
+               (moveInTodo)="onMoveInTodo($event)"></task-list>
 </section>

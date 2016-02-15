@@ -2,7 +2,8 @@
     <div class="done-task__custom"></div>
     <div class="done-task__field done-task__field__marker">{{task.marker}}</div>
     <div class="done-task__field done-task__field__assigner"><span class="done-user">{{task.owner}}</span></div>
-    <div class="done-task__field done-task__field__assignee"><span class="done-user done-user__at">{{task.assignee}}</span>
+    <div class="done-task__field done-task__field__assignee"><span
+            class="done-user done-user__at">{{task.assignee}}</span>
     </div>
     <div class="done-task__field done-task__field__task">{{task.task}}</div>
     <div class="done-task__field done-task__field__description">
@@ -11,9 +12,10 @@
     <div class="done-task__field done-task__field__tester"><span class="done-user done-user__ec">{{task.qa}}</span>
     </div>
     <div class="done-task__field done-task__field__deadline"><span class="done-deadline">{{task.deadline}}</span></div>
-    <div class="done-task__field done-task__field__ticket"><a class="done-ticket" href="#" target="_blank">{{task.ticket}}</a></div>
+    <div class="done-task__field done-task__field__ticket"><a class="done-ticket" href="#" target="_blank">{{task.ticket}}</a>
+    </div>
     <div class="done-task__field done-task__field__time"><span
-        class="done-time"> {{task.timeSpent}}</span>
+            class="done-time"> {{task.timeSpent}}</span>
     </div>
 
     <div class="done-task__additional">
@@ -31,10 +33,25 @@
         <div class="done-task__additional__item">
             Действия:
             <div class="done-actions">
-                <button class="done-actions__action">Сделано</button>
-                <button class="done-actions__action">Не сделано</button>
                 <button class="done-actions__action"
-                (click)="onDeleteTask(task)">Удалить</button>
+                        *ngIf="isShowAction('todo')"
+                        (click)="onMoveInTodo(task)">Отложить
+                </button>
+                <button class="done-actions__action"
+                        *ngIf="isShowAction('sprint')"
+                        (click)="onMoveInSprint(task)">В спринт
+                </button>
+                <button class="done-actions__action"
+                        *ngIf="isShowAction('testing')"
+                        (click)="onTestingTask(task)">На тестирование
+                </button>
+                <button class=" done-actions__action"
+                        (click)="onDeleteTask(task)">Удалить
+                </button>
+                <button class="done-actions__action"
+                        *ngIf="isShowAction('done')"
+                        (click)="onMoveInDone(task)">Готово
+                </button>
             </div>
         </div>
     </div>
