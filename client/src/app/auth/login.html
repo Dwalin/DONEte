@@ -1,0 +1,16 @@
+<form class="done-login"
+      [ngFormModel]="logInForm"
+      (submit)="logIn()">
+    <span>Залогиньтесь, юзернейм</span>
+    <input type="text"
+           name="login"
+           placeholder="Login"
+           [(ngModel)]="logInModel.login"
+           ngControl="login">
+    <input type="password"
+           name="password"
+           placeholder="Password"
+           [(ngModel)]="logInModel.password"
+           ngControl="password">
+    <button class="done-button">Войти</button>
+</form>

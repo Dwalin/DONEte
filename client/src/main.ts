@@ -8,6 +8,7 @@ import {HTTP_PROVIDERS} from 'angular2/http';
 import {API_PROVIDERS} from './app/tasks/services/api'
 import {provideStore} from '@ngrx/store';
 import {tasks} from './app/tasks/reducers/tasks';
+import {auth} from './app/auth/reducers/auth';
 
 require('./assets/css/style.styl');
 
@@ -36,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function main() {
         ...ROUTER_PROVIDERS,
         ...API_PROVIDERS,
         provide(LocationStrategy, {useClass: HashLocationStrategy}),
-        provideStore({tasks})
+        provideStore({tasks, auth})
     ])
         .catch(err => console.error(err));
 });
