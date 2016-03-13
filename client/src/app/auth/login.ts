@@ -1,4 +1,4 @@
-import {Component} from 'angular2/core';
+import {Component, OnDestroy} from 'angular2/core';
 import {FormBuilder, FORM_DIRECTIVES, Validators} from 'angular2/common';
 import {Router} from 'angular2/router';
 import AuthService from './services/auth';
@@ -9,19 +9,21 @@ import AuthService from './services/auth';
     directives: [FORM_DIRECTIVES],
     template: require('./login.html')
 })
-export class Login {
+export class Login implements OnDestroy {
     logInForm;
     logInModel = {
         login: '',
         password: ''
     };
 
+    authSubscription: any;
+
     constructor(private auth: AuthService,
                 private builder: FormBuilder,
                 private router: Router) {
 
-        this.auth.current$.subscribe((user) => {
-            if(user){
+        this.authSubscription = this.auth.current$.subscribe((user) => {
+            if (user) {
                 this.router.navigate(['Index']);
             }
         });
@@ -32,6 +34,10 @@ export class Login {
                 password: ['', Validators.required]
             }
         );
+    }
+
+    ngOnDestroy() {
+        this.authSubscription.unsubscribe();
     }
 
     logIn() {

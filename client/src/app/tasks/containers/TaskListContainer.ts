@@ -7,16 +7,20 @@ import {ITask} from '../models/ITask';
 import {TaskList} from '../components/TaskList/TaskList';
 import {TaskFilter} from '../components/Filters/TaskFilter/TaskFilter';
 import AddTaskForm from '../components/AddTaskForm/AddTaskForm';
+import Greetings from '../components/Greetings/Greetings';
+import AuthSrvice from '../../auth/services/auth';
 
 const ALL_FILTER = 'all';
 
 @Component({
     selector: 'tasks-list-container',
-    directives: [NgIf, TaskList, TaskFilter, AddTaskForm],
+    directives: [NgIf, TaskList, TaskFilter, AddTaskForm, Greetings],
     template: require('./TaskListContainer.html'),
-    providers: [Tasks]
+    providers: [Tasks, AuthSrvice]
 })
 export class TaskListContainer {
+    username: String = '';
+
     tasks = {
         todo: [],
         inSprint: [],
@@ -26,7 +30,8 @@ export class TaskListContainer {
 
     currentFilter: string = ALL_FILTER;
 
-    constructor(public tasksService: Tasks) {
+    constructor(public tasksService: Tasks,
+                private auth: AuthSrvice) {
         tasksService.loadTasks();
 
         tasksService.tasks$.subscribe((tasks: ITask[]) => {
@@ -34,6 +39,12 @@ export class TaskListContainer {
             this.tasks.inSprint = tasks.filter((task: ITask) => task.state === 'sprint');
             this.tasks.testing = tasks.filter((task: ITask) => task.state === 'testing');
             this.tasks.done = tasks.filter((task: ITask) => task.state === 'done');
+        });
+
+        this.auth.current$.subscribe((user) => {
+            if (user) {
+                this.username = user.name;
+            }
         });
     }
 
@@ -79,7 +90,7 @@ export class TaskListContainer {
         this.tasksService.filterTasks(filterName);
     }
 
-    showSection(sectionName: string): boolean{
+    showSection(sectionName: string): boolean {
         return this.currentFilter === ALL_FILTER || this.currentFilter === sectionName;
     }
 }

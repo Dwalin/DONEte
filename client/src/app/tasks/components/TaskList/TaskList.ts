@@ -2,7 +2,8 @@ import {
     Component,
     Input,
     Output,
-    EventEmitter
+    EventEmitter,
+    ChangeDetectionStrategy
 } from 'angular2/core';
 
 import {NgFor, NgIf} from 'angular2/common';
@@ -13,7 +14,8 @@ import {TaskItem} from '../Task/TaskItem';
 @Component({
     selector: 'task-list',
     directives: [NgFor, NgIf, TaskItem],
-    template: require('./TasksList.html')
+    template: require('./TasksList.html'),
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TaskList {
     @Input()

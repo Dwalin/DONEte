@@ -4,6 +4,7 @@
     "data": {
         "id": "22",
         "name": "Vitalyi Hudima",
-        "email": "gkatmai@gmail.com"
+        "email": "gkatmai@gmail.com",
+        "token": "some_token"
     }
 }
